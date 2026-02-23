@@ -134,6 +134,7 @@
               box-shadow var(--duration-normal) var(--ease-out),
               border-color var(--duration-normal);
   color: inherit;
+  position: relative;
 }
 
 .service-card:hover {
@@ -158,6 +159,40 @@
 .service-card:hover .service-card-img img {
   transform: scale(1.05);
 }
+
+/* Сетка услуг — более выразительная, с нумерацией направлений */
+.services-grid {
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    gap: var(--space-7);
+  }
+}
+
+.services-grid .service-card::before {
+  content: '01';
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  color: #fefce8;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.services-grid .service-card:nth-child(2)::before { content: '02'; }
+.services-grid .service-card:nth-child(3)::before { content: '03'; }
+.services-grid .service-card:nth-child(4)::before { content: '04'; }
+.services-grid .service-card:nth-child(5)::before { content: '05'; }
+.services-grid .service-card:nth-child(6)::before { content: '06'; }
+.services-grid .service-card:nth-child(7)::before { content: '07'; }
 
 .service-card-body {
   padding: var(--space-6);
